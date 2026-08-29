@@ -14,7 +14,7 @@ public:
                 count++;
             }
         }
-        result = max(result , count);
+        result = count;
 
         while(high < s.length()){
             if(isVowel(s[high])){
