@@ -2,30 +2,43 @@ class Solution {
 public:
     long long maxAlternatingSum(vector<int>& nums) {
 
-        
-        for(int i=0; i<nums.size(); i++){
+        for(int i=0;i<nums.size();i++){
             nums[i] = nums[i]*nums[i];
         }
-        long long sum = 0;
+
+        // for(int i=0;i<nums.size();i++){
+        //     int minimum = i;
+        //     for(int j=i+1;j<nums.size();j++){
+        //         if(nums[minimum] > nums[j]){
+        //             minimum = j;
+        //         }
+        //     }
+        //     swap(nums[i],nums[minimum]);
+        // }
         sort(nums.begin(),nums.end());
 
-        int i = 0;
-        int j = nums.size()-1;
-
-
-        for(int k=0; k<nums.size(); k++){
-            if((k+1)%2 == 0){
-                sum -= nums[i];
-                i++;
-            }else{
-                sum += nums[j];
-                j--;
+        long long score = 0;
+        int i=0;
+        int low = 0;
+        int high = nums.size()-1;
+        while(i<nums.size()){
+            if(i == 0){
+                score = score + nums[high];
+                high--;
             }
+
+            else if(i%2 == 0){
+                score = score + nums[high];
+                high--;
+            }
+
+            else{
+                score = score - nums[low];
+                low++;
+
+            }
+            i++;
         }
-
-        return sum;
-
-
-        
+        return score;
     }
 };
