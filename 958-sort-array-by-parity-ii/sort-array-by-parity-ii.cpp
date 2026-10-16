@@ -16,11 +16,11 @@ public:
         int j=0;
         vector<int> ans;
         for(int k=0; k<nums.size(); k++){
-            if((k+1) % 2 != 0){
-                ans.push_back(even[i]);
+            if((k+1) % 2 == 0){
+                ans.push_back(odd[i]);
                 i++;
             }else{
-                ans.push_back(odd[j]);
+                ans.push_back(even[j]);
                 j++;
             }
         }
