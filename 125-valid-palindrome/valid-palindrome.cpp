@@ -1,18 +1,22 @@
 class Solution {
 public:
     bool isPalindrome(string s) {
-        string result = s;
         string ans;
-        transform(result.begin(),result.end(),result.begin(),::tolower);
-        for(int i =0; i<result.length(); i++){
-            if( (result[i] >= 48 && result[i] <= 57) ||(result[i] >= 97 && result[i] <= 122)){
-                ans.push_back(result[i]);
+        for(int i=0; i<s.length(); i++){
+            if( ((65 <= s[i] && s[i] <=  90) || (97 <= s[i] && s[i] <= 122)) || (s[i] >= '0' && s[i] <= '9') ){
+                ans.push_back(s[i]);
             }
         }
-        string ans1 = ans;
-        reverse(ans.begin(), ans.end());
 
-        return ans1==ans;
-        
+        transform(ans.begin(),ans.end(),ans.begin(),::tolower);
+        string result = ans;
+
+        reverse(ans.begin(),ans.end());
+        string ans1 = ans;
+
+        if(result == ans1){
+            return true;
+        }
+        return false;
     }
 };
