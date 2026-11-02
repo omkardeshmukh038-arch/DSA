@@ -1,9 +1,9 @@
 class Solution {
 public:
     bool isVowel(char ch) {
-        return (ch == 'a' || ch == 'e' || ch == 'i' ||ch == 'o' || 
+        return ch == 'a' || ch == 'e' || ch == 'i' ||ch == 'o' || 
         ch == 'u' ||ch == 'A' || ch == 'E' || ch == 'I' ||
-        ch == 'O' || ch == 'U');
+        ch == 'O' || ch == 'U';
          
     }
     string reverseVowels(string s) {
