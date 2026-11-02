@@ -1,10 +1,14 @@
 class Solution {
 public:
     bool isVowel(char ch) {
-        return ch == 'a' || ch == 'e' || ch == 'i' ||
-               ch == 'o' || ch == 'u' ||
-               ch == 'A' || ch == 'E' || ch == 'I' ||
-               ch == 'O' || ch == 'U';
+        if(ch == 'a' || ch == 'e' || ch == 'i' ||
+            ch == 'o' || ch == 'u' ||
+            ch == 'A' || ch == 'E' || ch == 'I' ||
+            ch == 'O' || ch == 'U'){
+            return true;
+        }
+
+        return false;
     }
     string reverseVowels(string s) {
         int low = 0;
@@ -15,6 +19,7 @@ public:
                 swap(s[low], s[high]);
                 low++;
                 high--;
+                continue;
             }
             else if(isVowel(s[low])) {
                 high--;
