@@ -8,11 +8,7 @@ public:
 
 
         while(low <= high){
-            if(people[low]+people[high] == limit){
-                count++;
-                low++;
-                high--;
-            }else if(people[low]+people[high] < limit){
+            if(people[low]+people[high] <= limit){
                 count++;
                 low++;
                 high--;
