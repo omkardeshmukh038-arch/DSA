@@ -6,7 +6,7 @@ public:
 
         while(x != 0){
             remainder = x % 10;
-                        if (ans > INT_MAX / 10 || (ans == INT_MAX / 10 && remainder > 7)) {
+            if (ans > INT_MAX / 10 || (ans == INT_MAX / 10 && remainder > 7)) {
                 return 0;
             }
 
