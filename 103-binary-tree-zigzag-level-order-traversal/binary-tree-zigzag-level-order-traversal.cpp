@@ -21,39 +21,24 @@ public:
         while(!q.empty()){
             int n = q.size();
             vector<int> temp;
+            while(n--){
+                TreeNode* t = q.front();
+                temp.push_back(t->val);
+                q.pop();
+                    
+                if(t->left != NULL){
+                    q.push(t->left);
+                }
+                if(t->right != NULL){
+                    q.push(t->right);
+                }
+            }
             if(lefttoright){
-                while(n--){
-                    TreeNode* t = q.front();
-                    temp.push_back(t->val);
-                    q.pop();
-                    
-                    if(t->left != NULL){
-                        q.push(t->left);
-                    }
-                    if(t->right != NULL){
-                        q.push(t->right);
-                    }
-                }
                 lefttoright = false;
-
             }else{
-                while(n--){
-                    TreeNode* t = q.front();
-                    temp.push_back(t->val);
-                    q.pop();
-                    
-                    if(t->left != NULL){
-                        q.push(t->left);
-                    }
-                    if(t->right != NULL){
-                        q.push(t->right);
-                    }
-                }
                 reverse(temp.begin(),temp.end());
                 lefttoright = true;
-
             }
-            
             result.push_back(temp);
         }
         return;
